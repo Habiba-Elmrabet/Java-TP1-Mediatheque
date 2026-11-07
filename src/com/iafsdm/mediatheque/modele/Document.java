@@ -1,0 +1,86 @@
+package com.iafsdm.mediatheque.modele;
+import com.iafsdm.mediatheque.modele.Empruntable;
+import java.util.Scanner;
+
+public abstract class Document implements Empruntable {
+    private int id;
+    private String titre;
+    private int annee;
+    private boolean emprunte;
+    public Scanner sc = new Scanner(System.in);
+
+    public Document(int id, String titre, int annee){
+        //while(id<0){
+           // System.out.println("id doit etre superieur a 0");
+           // System.err.print("donner l'id : ");
+           // id = sc.nextInt();
+       // }
+        this.id = id;
+        this.titre = titre;
+        this.annee = annee;
+        emprunte = false;
+    }
+
+        public Document() {
+        }
+
+    public void settitre(String titre){
+        while(titre == null || titre.trim().isEmpty()){
+          System.out.print("le titre est vide, donner un nauveau titre : ");
+          titre = sc.nextLine();
+       }
+       this.titre = titre;
+    }
+
+    public  void setannee(int annee){
+        while(annee <= 0){
+            System.out.print("l'annee doit etre superieur a 0 , donner un nauveau annee : ");
+            annee = sc.nextInt();
+        }
+        this.annee = annee;
+    }
+
+    public int getid(){
+        return id;
+    }
+
+    public String gettitre(){
+        return titre;
+    }
+
+    public int getannee(){
+        return annee;
+    }
+
+    public boolean getemprunte(){
+        return emprunte;
+    }
+    
+    public abstract String description();
+    
+    public boolean emprunter(){
+         if(emprunte){
+            return true;
+         }else{
+            return false;
+         }
+    }
+
+    public boolean retourner(){
+         if(emprunte){
+            return false;
+         }else{
+            return true;
+         }
+    }
+
+    public boolean estDisponible(){
+         if(emprunter()){
+            return false;
+         }else{
+            return true;
+         }
+    }
+
+   
+}
