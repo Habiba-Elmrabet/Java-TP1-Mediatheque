@@ -14,6 +14,9 @@ public class Main {
         Livre l2 = new Livre(2, "sql", 2025, "fadoua");
         DVD d1 = new DVD(3, "name_dvd", 2024, 60);
         Mediatheque m = new Mediatheque();
+        m.ajouter(l1);
+        m.ajouter(l2);
+        m.ajouter(d1);
         Scanner sc = new Scanner(System.in);
         int choix;
         System.out.println("===MEDIATHEQUE===");
@@ -105,5 +108,7 @@ public class Main {
                     System.out.println("nombre inconnue, votre coix doit etre entre 0 et 6");
             }
         }
+        System.out.print("Votre choix : ");
+        choix = sc.nextInt();
     }
 }

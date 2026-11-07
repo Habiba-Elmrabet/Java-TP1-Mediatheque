@@ -3,7 +3,7 @@ import com.iafsdm.mediatheque.modele.Document;
 
 public class Mediatheque{
     private Document[] documents = new Document[20];
-    private int nombreDocuments;
+    private int nombreDocuments = 0;
 
     public int getnombreDocuments(){
         return nombreDocuments;
@@ -31,7 +31,7 @@ public class Mediatheque{
         }
 
         documents[getnombreDocuments()] = d;
-        nombreDocuments++;
+        setnombreDocuments(getnombreDocuments()+1);
 
         return true;
     }
@@ -48,7 +48,7 @@ public class Mediatheque{
 
     public void afficherCatalogue(){
         for(int i=0 ; i < getnombreDocuments() ; i++){
-            System.out.println("documents[i].description()");
+            System.out.println(documents[i].description());
         }
     }
 
