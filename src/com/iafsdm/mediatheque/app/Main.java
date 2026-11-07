@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Main {
     public static void main (String[] args){
         Livre l1 = new Livre(1, "java", 2026, "hamza");
-        Livre l2 = new Livre(2, "sql", 2025, "fadoua");
+        Livre l2 = new Livre(2, "java", 2026, "hamza");
         DVD d1 = new DVD(3, "name_dvd", 2024, 60);
         Mediatheque m = new Mediatheque();
         m.ajouter(l1);
@@ -19,17 +19,18 @@ public class Main {
         m.ajouter(d1);
         Scanner sc = new Scanner(System.in);
         int choix;
-        System.out.println("===MEDIATHEQUE===");
-        System.out.println("1.afficher le catalogue");
-        System.out.println("2.ajouter un livre");
-        System.out.println("3.ajouter un DVD");
-        System.out.println("4.emprunter un document");
-        System.out.println("5.retourner un document");
-        System.out.println("6.afficherle nombre de documents disponibles");
-        System.out.println("0.Quitter");
-        System.out.print("Votre choix : ");
-        choix = sc.nextInt();
-        while(choix != 0){
+        do{
+          System.out.println("===MEDIATHEQUE===");
+          System.out.println("1.afficher le catalogue");
+          System.out.println("2.ajouter un livre");
+          System.out.println("3.ajouter un DVD");
+          System.out.println("4.emprunter un document");
+          System.out.println("5.retourner un document");
+          System.out.println("6.afficherle nombre de documents disponibles");
+          System.out.println("0.Quitter");
+          System.out.print("Votre choix : ");
+          choix = sc.nextInt();
+        
             switch (choix){
                 case 1 :
                     m.afficherCatalogue();
@@ -37,15 +38,18 @@ public class Main {
                 case 2 :{
                     System.out.print("donner l'id du livre : ");
                     int id = sc.nextInt();
+                    sc.nextLine();
                     while(id<0){
                        System.out.println("id doit etre superieur a 0");
                        System.err.print("donner l'id : ");
                        id = sc.nextInt();
+                       sc.nextLine();
                     }
                     System.out.print("donner le titre du livre : ");
                     String titre = sc.nextLine();
                     System.out.print("donner l'annee du livre : ");
                     int annee = sc.nextInt();
+                    sc.nextLine();
                     System.out.print("donner l'auteur du livre : ");
                     String auteur = sc.nextLine();
 
@@ -60,17 +64,21 @@ public class Main {
                 case 3 :{
                     System.out.print("donner l'id du DVD : ");
                     int id = sc.nextInt();
+                    sc.nextLine();
                     while(id<0){
                        System.out.println("id doit etre superieur a 0");
                        System.err.print("donner l'id : ");
                        id = sc.nextInt();
+                       sc.nextLine();
                     }
                     System.out.print("donner le titre du DVD : ");
                     String titre = sc.nextLine();
                     System.out.print("donner l'annee du DVD : ");
                     int annee = sc.nextInt();
+                    sc.nextLine();
                     System.out.print("donner la duree du DVD : ");
                     int durre = sc.nextInt();
+                    sc.nextLine();
 
                     DVD d = new DVD(id, titre, annee, durre);
                     if(m.ajouter(d)){
@@ -83,6 +91,7 @@ public class Main {
                 case 4 :{
                     System.out.println("donner l'id du livre que tu veut emprunter : ");
                     int id = sc.nextInt();
+                    sc.nextLine();
                     if(m.emprunter(id)){
                         System.out.println("emprunter avec succes");
                     }else{
@@ -93,6 +102,7 @@ public class Main {
                 case 5 :{
                     System.out.println("donner l'id du livre que tu veut retourner : ");
                     int id = sc.nextInt();
+                    sc.nextLine();
                     if(m.retourner(id)){
                         System.out.println("retourner avec succes");
                     }else{
@@ -107,8 +117,6 @@ public class Main {
                 default :
                     System.out.println("nombre inconnue, votre coix doit etre entre 0 et 6");
             }
-        }
-        System.out.print("Votre choix : ");
-        choix = sc.nextInt();
+        }while(choix!=0);
     }
 }

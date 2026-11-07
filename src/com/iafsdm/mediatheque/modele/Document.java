@@ -10,11 +10,6 @@ public abstract class Document implements Empruntable {
     public Scanner sc = new Scanner(System.in);
 
     public Document(int id, String titre, int annee){
-        //while(id<0){
-           // System.out.println("id doit etre superieur a 0");
-           // System.err.print("donner l'id : ");
-           // id = sc.nextInt();
-       // }
         this.id = id;
         this.titre = titre;
         this.annee = annee;
@@ -36,6 +31,7 @@ public abstract class Document implements Empruntable {
         while(annee <= 0){
             System.out.print("l'annee doit etre superieur a 0 , donner un nauveau annee : ");
             annee = sc.nextInt();
+            sc.nextLine();
         }
         this.annee = annee;
     }
