@@ -13,9 +13,9 @@ public class Livre extends Document{
         return auteur;
     }
 
-    public Livre(int id, String titre, int annee){
+    public Livre(int id, String titre, int annee, String auteur){
         super(id, titre, annee);
-        auteur = "unknown";
+        this.auteur = auteur;
     }
     
     @Override

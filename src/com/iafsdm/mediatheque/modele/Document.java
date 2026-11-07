@@ -59,7 +59,8 @@ public abstract class Document implements Empruntable {
     public abstract String description();
     
     public boolean emprunter(){
-         if(emprunte){
+         if(!emprunte){
+            emprunte = true;
             return true;
          }else{
             return false;
@@ -68,14 +69,15 @@ public abstract class Document implements Empruntable {
 
     public boolean retourner(){
          if(emprunte){
-            return false;
-         }else{
+            emprunte = false;
             return true;
+         }else{
+            return false;
          }
     }
 
     public boolean estDisponible(){
-         if(emprunter()){
+         if(emprunte){
             return false;
          }else{
             return true;

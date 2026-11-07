@@ -14,9 +14,9 @@ public class DVD extends Document{
         return dureeMinutes;
     }
 
-    public DVD(int id,String titre, int annee){
+    public DVD(int id,String titre, int annee, int durre){
         super(id, titre, annee);
-        dureeMinutes = 0;
+        dureeMinutes = durre;
     }
 
     @Override
